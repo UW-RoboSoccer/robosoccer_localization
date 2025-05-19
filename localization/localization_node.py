@@ -9,6 +9,9 @@ class LocalizationNode(Node):
         self.create_subscription(PoseStamped, '/ball_pose', self.ball_callback, 10)
         self.create_subscription(Imu, '/imu/data', self.imu_callback, 10)
         self.pose_pub = self.create_publisher(PoseStamped, '/robot_pose', 10)
+
+        self.get_logger().info('Localization node has started.')
+
         # TODO: Implement localization logic (VO/MCL)
 
     def ball_callback(self, msg):
